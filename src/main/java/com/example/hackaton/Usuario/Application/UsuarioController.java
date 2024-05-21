@@ -1,5 +1,4 @@
 package com.example.hackaton.Usuario.Application;
-
 import com.example.hackaton.Usuario.Domain.Usuario;
 import com.example.hackaton.Usuario.Domain.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,4 +22,3 @@ public class UsuarioController {
         return ResponseEntity.ok(usuarioService.login(correoElectronico, contrasena));
     }
 }
-
