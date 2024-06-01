@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -32,6 +33,12 @@ public class ReservaService {
     @Transactional
     public void deleteReserva(Long id) {
         reservaRepository.deleteById(id);
+    }
+
+    public List<Reserva> getReservasInLastThreeMinutes() {
+        LocalDateTime now = LocalDateTime.now();
+        LocalDateTime threeMinutesAgo = now.minusMinutes(3);
+        return reservaRepository.findAllByCreatedDateBetween(threeMinutesAgo, now);
     }
 }
 
