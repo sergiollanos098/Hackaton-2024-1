@@ -29,16 +29,27 @@ public class Reserva {
     @JoinColumn(name = "idSalon", nullable = false)
     private Salon salon;
 
-
-    public Reserva(LocalDate fecha, LocalTime horaInicio, LocalTime horaFin, Usuario usuario, Salon salon) {
-        this.id = id;
-        this.fecha = fecha;
-        this.horaInicio = horaInicio;
+    public Reserva(Salon salon, LocalTime horaFin, Usuario usuario, LocalTime horaInicio, Long id, LocalDate fecha) {
+        this.salon = salon;
         this.horaFin = horaFin;
         this.usuario = usuario;
-        this.salon = salon;
+        this.horaInicio = horaInicio;
+        this.id = id;
+        this.fecha = fecha;
     }
 
+    public Reserva() {
+            this.id = id;
+            this.fecha = fecha;
+            this.horaInicio = horaInicio;
+            this.horaFin = horaFin;
+            this.usuario = usuario;
+            this.salon = salon;
+        }
 
-// Getters y Setters
+    public Reserva(LocalDate of, LocalTime of1, LocalTime of2, Usuario usuario, Salon salon) {
+    }
 }
+
+    // Getters y Setters
+
